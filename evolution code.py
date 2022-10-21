@@ -96,7 +96,7 @@ while countc < d:
     for i in child:
             if i == 1:
                 countc += 1
-                print(countc)
+                #  print(countc)
     if countc < d:
         countc = 0
     #  print(countc, d)
