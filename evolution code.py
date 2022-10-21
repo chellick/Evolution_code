@@ -103,3 +103,4 @@ while countc < d:
     population.append(child)
     del population[:b]
 print(child)
+exit(10)
