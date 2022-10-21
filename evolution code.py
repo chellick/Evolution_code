@@ -1,4 +1,5 @@
 from random import randint
+import time
 
 count = 0
 count2 = 0
@@ -12,57 +13,20 @@ countc = 0
 b = int(input("сколько хотите индивидов?  "))
 d = int(input("длина индивидов  "))
 #  while countc != d:
-for i in range(b):
-    c1 = []
-    for i in range(d):
-        a = randint(0, 1)
-        c1.append(a)
-    population.append(c1)
-print(population, "популяция")
-#  print(space, c1, "\n", c2, "\n", c3, "\n", c4, "\n", c5, "\n", c6)
-#  print(len(population))
-#  if countc == d:
-#    print(child)
-#  else:
-#    continue
-"""
-for i in c1:
-    if i == 1:
-        best += 1
-        for i in c2:
-            if i == 1:
-                count += 1
-                if count > best:
-                    best = count
-                    count = 0
-                    for i in c3:
-                        if i == 1:
-                            count += 1
-                            if count > best:
-                                best = count
-                                count = 0
-                                for i in c4:
-                                    if i == 1:
-                                        count += 1
-                                        if count > best:
-                                            best = count
-                                            count = 0
-                                            for i in c5:
-                                                if i == 1:
-                                                    count += 1
-                                                    if count > best:
-                                                        best = count
-                                                        count = 0
-                                                        for i in c6:
-                                                            if i == 1:
-                                                                count += 1
-                                                                if count > best:
-                                                                    best = count
-                                                                    count = 0
-
-print(best)
-"""
-for i in range(b):
+while countc < d:
+    for i in range(b):
+        c1 = []
+        for i in range(d):
+            a = randint(0, 1)
+            c1.append(a)
+        population.append(c1)
+    print(population, "популяция")
+    #  print(space, c1, "\n", c2, "\n", c3, "\n", c4, "\n", c5, "\n", c6)
+    #  print(len(population))
+    #  if countc == d:
+    #    print(child)
+    #  else:
+    #    continue
     tournament = randint(0, len(population) - 1)
     #  print(tournament)
     fp = population[tournament]
@@ -114,9 +78,9 @@ for i in range(b):
     sh = parent2[rand::]  # second half
     child = fh + sh
 
-    #  print(rand, "рандомное число из fh, sh списка", "\n")
-    #  print(space, parent1, "родитель 1", "\n", parent2, "родитель 2", "\n", "\n")
-    #  print(space, fh, "генотип 1", "\n", sh, "генотип 2", "\n", "\n")
+    #   print(rand, "рандомное число из fh, sh списка", "\n")
+    #   print(space, parent1, "родитель 1", "\n", parent2, "родитель 2", "\n", "\n")
+    #   print(space, fh, "генотип 1", "\n", sh, "генотип 2", "\n", "\n")
     print(child, "ребёнок")
 
     for i in range(len(child)):
@@ -126,10 +90,16 @@ for i in range(b):
             child[[i] == 1] = 0  # метод замена элементов на основе одного условия
     #  print(rand,"число", "\n")
     #  print(child, "ребенок мутант")
-    population.append(child)
+
     #  print(population)
-    if i in child == 1:
-        countc += 1
-    # print(countc)
-del population[:b]
-print(population)
+
+    for i in child:
+            if i == 1:
+                countc += 1
+                print(countc)
+    if countc < d:
+        countc = 0
+    #  print(countc, d)
+    population.append(child)
+    del population[:b]
+print(child)
