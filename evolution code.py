@@ -1,5 +1,6 @@
 from random import randint
-import time
+import numpy as np
+import matplotlib.pyplot as plt
 
 count = 0
 count2 = 0
@@ -9,7 +10,11 @@ parent1 = []
 parent2 = []
 population = []
 countc = 0
+count_str = []
+
+
 #  code = int(input("сколько хотите популяций?  "))
+
 b = int(input("сколько хотите индивидов?  "))
 d = int(input("длина индивидов  "))
 #  while countc != d:
@@ -96,11 +101,24 @@ while countc < d:
     for i in child:
             if i == 1:
                 countc += 1
-                #  print(countc)
+                count_str.append(countc)#  print(countc)
+                
     if countc < d:
         countc = 0
     #  print(countc, d)
     population.append(child)
+    
+
     del population[:b]
+for ex in range(len(count_str) + 1):
+    count_str_x = list(range(1, ex + 1))
+print(count_str_x, "len str x")
+print(count_str, "len str")
 print(child)
-exit(10)
+
+
+fig, ax = plt.subplots()
+x = count_str_x
+y = count_str
+ax.plot(x, y)
+plt.show()
