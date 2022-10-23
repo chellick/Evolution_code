@@ -25,7 +25,7 @@ while countc < d:
             a = randint(0, 1)
             c1.append(a)
         population.append(c1)
-    print(population, "популяция")
+    #  print(population, "популяция")
     #  print(space, c1, "\n", c2, "\n", c3, "\n", c4, "\n", c5, "\n", c6)
     #  print(len(population))
     #  if countc == d:
@@ -86,7 +86,7 @@ while countc < d:
     #   print(rand, "рандомное число из fh, sh списка", "\n")
     #   print(space, parent1, "родитель 1", "\n", parent2, "родитель 2", "\n", "\n")
     #   print(space, fh, "генотип 1", "\n", sh, "генотип 2", "\n", "\n")
-    print(child, "ребёнок")
+    #  print(child, "ребёнок")
 
     for i in range(len(child)):
         rand = randint(1, 100)
@@ -112,8 +112,8 @@ while countc < d:
     del population[:b]
 for ex in range(len(count_str) + 1):
     count_str_x = list(range(1, ex + 1))
-print(count_str_x, "len str x")
-print(count_str, "len str")
+#  print(count_str_x, "len str x")
+#  print(count_str, "len str")
 print(child)
 
 
