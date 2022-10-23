@@ -96,24 +96,26 @@ while countc < d:
     #  print(rand,"число", "\n")
     #  print(child, "ребенок мутант")
 
-    #  print(population)
+    
 
     for i in child:
-            if i == 1:
-                countc += 1
-                count_str.append(countc)#  print(countc)
-                
+        if i == 1:
+            countc += 1
+            count_str.append(countc)#  print(countc) 
+
     if countc < d:
         countc = 0
     #  print(countc, d)
     population.append(child)
     
 
-    del population[:b]
+    del population[:b] 
+
 for ex in range(len(count_str) + 1):
     count_str_x = list(range(1, ex + 1))
 #  print(count_str_x, "len str x")
-#  print(count_str, "len str")
+#  print(population)
+print(count_str, "len str")
 print(child)
 
 
