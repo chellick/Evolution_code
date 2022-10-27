@@ -92,7 +92,7 @@ for i in range(steps):  #  Основной цикл создания попул
     
     if len(population) == len(sep_population):
         for i in population:
-            count_pr += sum(i)
+            count_pr += sum(i) / len(population)
             count_str.append(count_pr)
         for i in range(len(population)):
             del population[0]
@@ -100,7 +100,7 @@ for i in range(steps):  #  Основной цикл создания попул
         for i in range(len(population)):
             del sep_population[0]
 
-    count_pr = 0
+    #  count_pr = 0
     #  print(population, "популяция")
     
 
