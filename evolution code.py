@@ -1,6 +1,6 @@
 from calendar import c
 from os import sep
-from random import randint
+from random import randint, random
 import numpy as np
 import matplotlib.pyplot as plt
 child = []
@@ -18,6 +18,10 @@ indiv = int(input("сколько хотите индивидов?  "))
 dlin = int(input("длина индивидов  "))
 steps = int(input("кол-во поколений  "))
 sep_population = []
+count_str_x = []
+count_str.append(count_pr)
+num_generation = 1
+count_str_x.append(num_generation)
 
 for i in range(indiv):
     c1 = []
@@ -26,7 +30,8 @@ for i in range(indiv):
         c1.append(a)
     population.append(c1)
 print(population, "первая")
-for i in range(steps):  #  Основной цикл создания популяций
+num_generation += 1
+for i in range((steps- 1) * indiv):  #  Основной цикл создания популяций
 #  while countc < dlin:
     fp = population[randint(0, len(population) - 1)]  #  Турнирный метод отбора родителей
     sp = population[randint(0, len(population) - 1)]
@@ -71,10 +76,9 @@ for i in range(steps):  #  Основной цикл создания попул
     child = fh + sh
 
     for i in range(len(child)):  #  Метод мутации
-        rand = randint(1, 100)
-        if rand == 1:
-            child[[i] == 0] = 1
-            child[[i] == 1] = 0  # метод замена элементов на основе одного условия
+        rand = random()
+        if rand <= 0.02:
+            child[i] = 1 if child[i] == 0 else 0 
     """
     for i in child:  #  Нахождение количества едениц в генотипе ребёнка
         if i == 1:
@@ -88,18 +92,16 @@ for i in range(steps):  #  Основной цикл создания попул
     """
     sep_population.append(child)  # Добавление ребенка в список
     #  print(sep_population, "changed population")
-    print(population, " популяция ", sep_population, " дочерняя популяция ")
+    #  print(population, " популяция ", sep_population, " дочерняя популяция ")
     
     if len(population) == len(sep_population):
         for i in population:
-            count_pr += sum(i) / len(population)
-            count_str.append(count_pr)
-        for i in range(len(population)):
-            del population[0]
+            count_pr = sum(i) / len(population)
+        count_str.append(count_pr)
+        count_str_x.append(num_generation)
         population = sep_population.copy()
-        for i in range(len(population)):
-            del sep_population[0]
-
+        sep_population = []
+        num_generation += 1
     #  count_pr = 0
     #  print(population, "популяция")
     
@@ -108,7 +110,7 @@ for ex in range(len(count_str) + 1):
     count_str_x = list(range(1, ex + 1))
 #  print(count_str_x, "len str x")
 #  
-print(count_str, "пригодность")
+#  print(count_str, "пригодность")
 print(child)
 
 
