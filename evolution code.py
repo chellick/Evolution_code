@@ -3,6 +3,7 @@ from os import sep
 from random import randint, random
 import numpy as np
 import matplotlib.pyplot as plt
+
 child = []
 count = 0
 count2 = 0
@@ -20,8 +21,10 @@ steps = int(input("кол-во поколений  "))
 sep_population = []
 count_str_x = []
 count_str.append(count_pr)
-num_generation = 1
+num_generation = 0
 count_str_x.append(num_generation)
+best_p = []
+best_count = 0
 
 for i in range(indiv):
     c1 = []
@@ -97,14 +100,19 @@ for i in range((steps- 1) * indiv):  #  Основной цикл создани
     if len(population) == len(sep_population):
         for i in population:
             count_pr = sum(i) / len(population)
+            if best < sum(i):
+                best = sum(i)
+                best_p.append(i)
+                best_count += 1
         count_str.append(count_pr)
+        num_generation += 1
         count_str_x.append(num_generation)
         population = sep_population.copy()
         sep_population = []
-        num_generation += 1
+        
     #  count_pr = 0
     #  print(population, "популяция")
-    
+
 
 for ex in range(len(count_str) + 1):
     count_str_x = list(range(1, ex + 1))
@@ -114,8 +122,20 @@ for ex in range(len(count_str) + 1):
 print(child)
 
 
-fig, ax = plt.subplots()
+
+for ex in range(len(best_p) + 1):
+    best_p_x = list(range(1, ex + 1))
+print(best_p, best_p_x, "best_count")
+print(len(count_str), count_str_x)
+print(num_generation, "num_generation")
+
+
+figure, axis = plt.subplots(2)
 x = count_str_x
 y = count_str
-ax.plot(x, y)
+x1 = best_p
+y1 = best_p_x
+axis[0].plot(x, y)
+axis[1].plot(x1, y1)
+
 plt.show()
